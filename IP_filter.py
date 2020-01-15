@@ -75,7 +75,7 @@ else:
     file = sys.argv[1]
 
 # 滤波器
-filter_type = LAPLACE_FILTER_2
+filter_type = LAPLACE_FILTER_1
 filter_name = filter_type['name']
 filter = filter_type['value']
 filter_size = filter.shape[0]   # 滤波器大小，如3X3
@@ -119,6 +119,13 @@ for index in range(img_size):
              expand_y - filter_size // 2: expand_y + filter_size // 2 + 1
     ].reshape((filter_size ** 2, 1, 3))
     pixel_new = sum(filter * pixels)
+
+    # 标定操作
+    for i in range(3):
+        if pixel_new[0, i] >= 255:
+            pixel_new[0, i] = 255
+        if pixel_new[0, i] <= 0:
+            pixel_new[0, i] = 0
     pixel_tuple = (
         int(pixel_new[0, 0]),
         int(pixel_new[0, 1]),

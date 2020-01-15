@@ -2,7 +2,7 @@ import PIL.Image
 
 # formulation: s = c * r ^ gama, c=1, gama=0
 # within which, scaling r to 0~1 first, then scaling to 0~255 in the end
-img = PIL.Image.open('img/test.png')
+img = PIL.Image.open('img/Lena.jpg')
 gama = 2.2
 
 
@@ -17,10 +17,9 @@ for height in range(img.size[1]):
         pixel = img.getpixel((length, height))
         out.putpixel((length, height), (gama_convert(pixel[0]),
                                         gama_convert(pixel[1]),
-                                        gama_convert(pixel[2]),
-                                        pixel[3]))
+                                        gama_convert(pixel[2])))
 # out.show()
-out.save('img/test_gama_convert.png')
+out.save('img/Lena_gama_convert.jpg')
 
 # my code 1 optimized
 # out = PIL.Image.new(img.mode, (img.size[0], img.size[1]))

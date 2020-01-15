@@ -5,7 +5,7 @@ import time
 
 start = time.time()
 
-file = 'img/bqb.png'
+file = 'img/logo.png'
 
 img = Image.open(file)
 img_arr = np.array(img)
@@ -14,8 +14,8 @@ width = img.size[0]
 height = img.size[1]
 size = width * height
 
-out_width = width * 2
-out_height = height * 2
+out_width = width // 2
+out_height = height // 2
 out_size = out_width * out_height
 
 out = Image.new(img.mode, (out_width, out_height))

@@ -3,7 +3,7 @@ import time
 
 start = time.time()
 
-file = 'img/Lena.jpg'
+file = 'img/IMG_1489.jpg'
 img = Image.open(file)
 
 width = img.size[0]

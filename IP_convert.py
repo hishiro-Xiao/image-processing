@@ -18,9 +18,9 @@ img = PIL.Image.open('img/test.png')
 # img = PIL.Image.eval(img, lambda x: 255 - x)
 
 # code example 2
-# out = img.point(lambda x: 255-x)
-# out.show()
-# out.save('img/test_convert_2.png')
+out = img.point(lambda x: 255-x)
+out.show()
+out.save('img/test_convert_2.png')
 
 # code exaple 3
 # OSError: not supported for this image mode ？？？
